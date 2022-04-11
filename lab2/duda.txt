@@ -1,0 +1,17 @@
+ej1)identificar bien quien es quien en algoritmo de inserccion
+ej5)y 6)ver si esta bien
+
+
+cosas nuevas:
+    x =range(-1,2)
+    plt.plot(x, [fun_lab2ej2a(i) for i in x])
+    plt.show()
+
+
+
+----------------------------------------------------
+static int(o lo que sea) --> funciones locales solo para usar en el archivo que estoy trabajando
+los numeros sin signar se udan para los indices 
+
+OPERADOR TERMANRIO 
+    (1 == 0u) ? 0u : 8 - 1u)
