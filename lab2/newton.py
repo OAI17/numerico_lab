@@ -2,16 +2,13 @@ import math
 import matplotlib.pyplot as plt
 
 def rnewton(fun,x0,err,mit):
-    #fun funcione
-    #x0 es un punto inicial 
-    #err es la tolerancia deseada del error
-    #mit cantidad de interaciones
     hx = []
     hy = []
-    a = int(input("Ingrese un valor: "))
-    fun_xn = fun(x0,a)    
-    #fun = fun_xn[0]
-    #derivade_fun = fun_xn[1]
+    #a = int(input("Ingrese un valor: "))
+    #fun_xn = fun(x0)
+    fun_xn = fun(x0)    
+    fun = fun_xn[0]
+    derivade_fun = fun_xn[1]
 
     v = fun_xn[0]
 
@@ -33,9 +30,7 @@ def fun(x,a):
     fun_s = (x**3)-a
     fun_der = (3)*(x**2)
     return (fun_s,fun_der)
-
-
-rnewton(fun,10,10e-6,100)
+#rnewton(fun,10,10e-6,100)
 
 
 

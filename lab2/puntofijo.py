@@ -1,11 +1,11 @@
 def ripf(fun,x0,err,mit):
     hx = []
-    i = 1
+    i = 0
 
     while (i <= mit):
         
         x = fun(x0)
-        print(i,x)
+        print(f"iteraciones {i} aprox {x}")
 
         if (abs(x-x0) < err) or (i >= mit):
             break
@@ -18,19 +18,14 @@ def ripf(fun,x0,err,mit):
     return hx
 
 def fun_lab2ej6(x):
-    valor = ((2**x)/2)-x
+    valor = 2**(x-1)
     return valor
     
-x0 = 2
+x0 = -1
 hx = ripf(fun_lab2ej6, x0, 1e-5, 100)
-print(hx)
 '''
-ej7 usar lambda 
-f = lambda x: g(x,y)
-va por aca 
-def funciones(y):
-    for x in range(1,10):
-        result = formula
-        hx.append(x)
-        hy.append(result)
+x0=0 --> 1
+x0=1,5 --> 1
+x0=2,5 --> inf
+x0=-1 --> 1
 '''

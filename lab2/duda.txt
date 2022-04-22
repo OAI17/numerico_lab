@@ -1,6 +1,8 @@
 ej1)identificar bien quien es quien en algoritmo de inserccion
 ej5)y 6)ver si esta bien
 
+ingrese un numero dividis por max del intervalo truncado por el numero ingresado 
+osea la precicion es la cantidad de numeros despues de la coma 
 
 cosas nuevas:
     x =range(-1,2)
