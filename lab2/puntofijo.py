@@ -21,8 +21,8 @@ def fun_lab2ej6(x):
     valor = 2**(x-1)
     return valor
     
-x0 = -1
-hx = ripf(fun_lab2ej6, x0, 1e-5, 100)
+#x0 = -1
+#hx = ripf(fun_lab2ej6, x0, 1e-5, 100)
 '''
 x0=0 --> 1
 x0=1,5 --> 1

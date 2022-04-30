@@ -1,5 +1,4 @@
-ej1)identificar bien quien es quien en algoritmo de inserccion
-ej5)y 6)ver si esta bien
+ej7)2) newton no anda bien en 2 y no lo puedo graficar en 7
 
 ingrese un numero dividis por max del intervalo truncado por el numero ingresado 
 osea la precicion es la cantidad de numeros despues de la coma 

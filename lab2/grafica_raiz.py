@@ -4,15 +4,26 @@ from newton import rnewton
 import math
 import matplotlib.pyplot as plt
 
+
+def newton_functions(x0):
+    x=0
+    f = lambda y : y - math.exp(-((1-x*y)**2))
+    fun_der = lambda y : y - math.exp(-1+(2*y)-(y**2))
+    fun_s = f(x0)
+    fun_der_ev = fun_der(x0)
+    return (fun_s,fun_der_ev)
+
+
 x = 0
 f = lambda y : y - math.exp(-((1-x*y)**2))
 g = lambda y : math.exp(-((1-x*y)**2))
-h = #es la funcion para newton y tiene que devolver una tupla con la funcoin y la derivada evaluada en x0
+h = newton_functions
 hx = []
 hy_pf = []
 hy_bis = []
 hy_new= [] 
 
+#conv_new = rnewton(newton_functions,0,1e-5,100)
 
 while(x <= 1.5):
     #Punto fijo
@@ -24,14 +35,21 @@ while(x <= 1.5):
     hy_bis.append(conv_bis[0][-1]) 
     
     #Newton
-    conv_new = rnewton(f,0,1e-5,100)
-    hy_new.append(conv_new[0][-1])
+    #conv_new = rnewton(h,0,1e-5,100)
+    #hy_new.append(conv_new[0][-1])
 
     hx.append(x)
     x = x + 0.005
 
-
-plt.plot(hx,hy_new)
+fig, axs = plt.subplots(2)
+fig.suptitle("Compraracion metodos de iteracion")
+axs[0].plot(hx,hy_bis)
+axs[0].set_title("Metodo de bisceccion")
+axs[1].plot(hx,hy_pf)
+axs[1].set_title("Metodo de punto fijo")
+#axs[2].plot(hx,hy_new)
+#axs[2].set_title("Metodo de newton")
 plt.show()
+
 
 
