@@ -1,0 +1,2 @@
+ej1)done
+ej2)almost complete, errror:compare larange(works fine) and newton and see
