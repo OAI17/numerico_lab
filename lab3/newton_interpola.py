@@ -37,13 +37,11 @@ def calculate_produc(mit,pto,xs):
 def inewton(x,y,z):
     ci = dif_div(x,y)
     evaluate = []
-
-    sumatoria = 0
     for k in range(len(z)):
+        sumatoria = 0
         for i in range(len(ci)):
-            produc = calculate_produc(i,z[0],x)
-            #print(produc)
-            sumatoria = sumatoria + (ci[k]*produc)
+            produc = calculate_produc(i,z[k],x)
+            sumatoria = sumatoria + (ci[i]*produc)
         evaluate.append(sumatoria)
     return evaluate
 
