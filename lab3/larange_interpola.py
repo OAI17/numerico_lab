@@ -22,4 +22,4 @@ def ilagrange(x,y,z):
 
 
 
-print(ilagrange([2, 2.5 , 4],[0.5 , 0.4 , 0.25],[1,2,3]))
+#print(ilagrange([2, 2.5 , 4],[0.5 , 0.4 , 0.25],[1,2,3]))

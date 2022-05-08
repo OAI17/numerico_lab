@@ -46,4 +46,4 @@ def inewton(x,y,z):
     return evaluate
 
 
-print(inewton([2, 2.5 , 4],[0.5 , 0.4 , 0.25],[1,2,3]))
+#print(inewton([2, 2.5 , 4],[0.5 , 0.4 , 0.25],[1,2,3]))
