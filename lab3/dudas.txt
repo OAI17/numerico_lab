@@ -1,2 +1,4 @@
 ej1)done
-ej2)almost complete, errror:compare larange(works fine) and newton and see
+ej2)done
+ej3)done
+ej4)done, preguntar que es lo queme quieren hacer ver
