@@ -2,3 +2,7 @@ ej1)done
 ej2)done
 ej3)done
 ej4)done, preguntar que es lo queme quieren hacer ver
+ej5)asi es como tengo que hacer la lectura de los datos y cambiar los nan por cero?
+	preg que lo que quiero que haa es que extrapóle y que donde haya nan que complete con algo parecido
+ej6)done
+ej7)preguntar si voy bien: si lo que me piden es un spline, y si es asi como hago para encontrar las raices

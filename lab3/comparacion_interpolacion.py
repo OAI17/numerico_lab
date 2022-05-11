@@ -64,7 +64,7 @@ def grafica_a():
 def grafica_b():
     fig, axs = plt.subplots(layout='constrained')
 
-    for n in range(1,15):
+    for n in range(1,16):
         hxi, hyi = func_b(n)
         hz = dist(-1,1)
         hw = inewton(hxi,hyi,hz)
