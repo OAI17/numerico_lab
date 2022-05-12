@@ -1,0 +1,21 @@
+sudo apt install tmux 
+
+tmux // para iniciar
+exit // cerrar session
+
+ctrl + b $ //renombrar una session
+ctrl + b c //crea nueva ventana, el asterisco indica en cual estas 
+ctrl + b p // cambia de ventana para atras
+ctrl + b n // cambia de ventana para adelante
+ctrl + b p // cambia de ventana para atras
+ctrl + b , // renombrar una pestaña  
+ctrl + b un numero // voy cambiando de terminales 
+
+ctrl + b % // divide pantalla en el medio 
+ctrl + b " // divide pantalla horizontal 
+ctrl + b x // elimina el panel en el que esto 
+ctrl + b flecha // cambio de paneles
+ctrl + b flecha (pulsado ctrl + b) // redimenciono panel
+
+
+  
