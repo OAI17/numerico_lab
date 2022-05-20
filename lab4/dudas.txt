@@ -1,0 +1,9 @@
+linespace: le das un intervalo [a,b] y la cantida de putos que queres y te devuelve una lista de puntos igualmente espaciados
+polyval: le das un polinomio y un valor y te lo evalua devolviendo el resultado
+polyfit: devuelve los coeficientes para aproximar a una lista de putos hx y hy, especificar el grado
+
+ej1)a) done
+ej1)b) done
+ej1)c) done
+ej2)a) done
+ej2b) falta

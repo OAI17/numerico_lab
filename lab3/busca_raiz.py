@@ -4,7 +4,7 @@ from matplotlib import pyplot as plt
 
 fig, axs = plt.subplots(layout='constrained')
 
-def rinterp(fun,x0,x1,x2,err,mit):
+def spline(fun,x0,x1,x2,err,mit):
 
     xn = [x0,x1,x2]
     hx = []
@@ -37,9 +37,11 @@ def rinterp(fun,x0,x1,x2,err,mit):
     axs.legend()
     plt.show()
     
-
-
 def func_ej(x):
     return (-(x**2))
 
-rinterp(func_ej,-1,0,1,0,0)
+
+#spline(func_ej,-1,0,1,0,0)
+
+def rinterp(fun,x0,x1,x2,err,mit):
+    pass
