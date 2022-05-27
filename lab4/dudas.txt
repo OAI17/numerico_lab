@@ -6,4 +6,6 @@ ej1)a) done
 ej1)b) done
 ej1)c) done
 ej2)a) done
-ej2b) falta
+ej2b) done
+ej3)a) done
+ej3)b) falta
