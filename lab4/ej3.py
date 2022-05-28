@@ -17,13 +17,13 @@ def a():
 
     for i in range(0,m):
         x = x + float(np.log(hx[i]))
-        y = y + float(np.log(hy[i]))
+        y = y + float((hy[i]))
         x_cuad = x_cuad + (float(hx[i])**2)
         x_y = x_y + float((hx[i])*float(hy[i]))
 
     # ax + b
-    a = ((m*x_y)-(x*y))/((m*x_cuad)-(x**2))
-    b = np.log(((x_cuad*y)-(x_y*x))/((m*x_cuad)-(x**2)))
+    a = np.exp((m*x_y)-(x*y))/((m*x_cuad)-(x**2))
+    b = (((x_cuad*y)-(x_y*x))/((m*x_cuad)-(x**2)))
 
 
     hx_new = []
@@ -39,7 +39,7 @@ def a():
     plt.scatter(hx,hy,label="Datos",color="red")
     plt.legend()
     plt.show()
-
+a()
 
 def b():
 
