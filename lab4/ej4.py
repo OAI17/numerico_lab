@@ -5,7 +5,8 @@ data = np.loadtxt("https://raw.githubusercontent.com/lbiedma/anfamaf2022/main/da
 
 m = len(data)
 
-hx = range(1,m+1)
+
+hx = np.arange(1,m+1)
 hy = data
 
 x = 0
@@ -14,25 +15,24 @@ x_cuad = 0
 x_y = 0
 
 for i in range(0,m):
-    x = x + float((hx[i]))
+    x = x + float(np.log(hx[i]))
     y = y + float(np.log(hy[i]))
     x_cuad = x_cuad + (float(hx[i])**2)
-    x_y = x_y + float((hx[i])*float(np.log(hy[i])))
+    x_y = x_y + float((hx[i])*float((hy[i])))
 
-# ax + b
-a = ((m*x_y)-(x*y))/((m*x_cuad)-(x**2))
-b = (((x_cuad*y)-(x_y*x))/((m*x_cuad)-(x**2)))
+# bx + a
+a = np.exp(((x_cuad*y)-(x_y*x))/((m*x_cuad)-(x**2)))
+b = ((m*x_y)-(x*y))/((m*x_cuad)-(x**2))
 
-print(a,b)
 hx_new = []
 hy_new = []
 
 
 for k in range(0,m):
-    fun = (a*hx[k]) + b
+    fun = (b*hx[k]) + a
     hy_new.append(fun)
 
-plt.plot(hx,hy_new,label="aprox",color="r")
+plt.plot(hy_new,label="aprox",color="r")
 plt.scatter(hx,data,label="datos",color="g")
 plt.legend()
 plt.show()
