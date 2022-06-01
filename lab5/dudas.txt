@@ -1,0 +1,3 @@
+ej1)	trapecio: como hago la parte del error si no se la funcion para calcular las derivadas, acoto?
+	rectangulo: misma dura sobre el error y preg si esta bien que sea tan mala 
+	simpson: le erra porque falta compensar el error?osea el error es mas sig que las otras dos reglas 
