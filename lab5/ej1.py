@@ -1,4 +1,3 @@
-from distutils.log import error
 import numpy as np 
 from matplotlib import pyplot as plt
 
@@ -9,22 +8,22 @@ N es la cantidad de subintervalos a usar y regla es un string, que deberá ser t
 pm o simpson. La salida S debe ser un número real
 '''
 
-def intenumcomp(fun,a,b,N,regla):
+def intenumcomp(fun,a,b,N,regla,error):
 
     if regla == "trapecio":
-        trapecio(fun,a,b,N)
+        trapecio(fun,a,b,N,error)
     
     elif regla == "pm":
-        pm(fun,a,b,N)
+        pm(fun,a,b,N,error)
     
     elif regla == "simpson":
-        simpson_compuesta(fun,a,b,N)
+        simpson_compuesta(fun,a,b,N,error)
 
     else:
         print("Operacion incorrecta")
         #intenumcomp(fun,a,b,N,regla)
 
-def trapecio(fun,a,b,N):
+def trapecio(fun,a,b,N,error):
     #Integra hasta pol de grado 1#
     xj = np.linspace(a,b,N+1)
     h = (b-a)/N
@@ -36,50 +35,51 @@ def trapecio(fun,a,b,N):
     for j in range(1,len(xj)-1):
         f_xj = f_xj + fun(xj[j])
 
-
-    error = ((b-a)/12)*(h**2) # Faltaria acotar la parte de la derivada
-
     integral = ((h/2) * (f_a + 2*f_xj + f_b)) - error
     print(f"Resultado de la integral de {a} hasta {b} es {integral} con metodo de trepecio compuesta")
-
-def pm(fun,a,b,N):
+    return integral
+    
+def pm(fun,a,b,N,error):
     #Integra hasta pol de grado 1#
     assert(N % 2 == 0)
 
     h = ((b-a)/(N+2))
-    
-    xj = []
-    for j in range(-1,N+2):
-        xj.append(a + ((j+1)*h))
-       
-    f_x2j = 0
-    
-    for j in range(0,int(N/2)+1):
-        f_x2j = f_x2j + fun(xj[j])
-    
-    error = ((b-a)/6)*(h**2) # Faltaria acotar la parte de la derivada
+    cota = int(N/2)+1
+    sum = 0 
 
-    integral = ((2*h) * f_x2j) - error
+    for j in range(cota):
+        sum = sum + (a+ fun(((2*j)+1)*h))
+
+    integral = ((2*h) * sum) - error
+
     print(f"Resultado de la integral de {a} hasta {b} es {integral} con metodo de pm compuesta")
     
-def simpson_compuesta(fun,a,b,N):
+def simpson_compuesta(fun,a,b,N,error):
     #Integra hasta pol de grado 3#
-    xj = np.linspace(a,b,(N*2)+1)
+    
     h = (b-a)/(2*N)
 
-    error = ((h**5)/90)
-    integral = 0 # Faltaria acotar la parte de la derivada
+    sx_0 = fun(a) + fun(b)
+    sx_1 = 0 
+    sx_2 = 0 
+    x = a
 
-    for j in range(0,int(len(xj)/2)):
-        pos_x0 = (2*j)-2
-        pos_x1 = (2*j)-1
-        pos_x2 = (2*j)
-        integral = integral + ((h/3)*(fun(xj[pos_x0]) + (4*fun(pos_x1)) + fun(pos_x2)) - error)
+    for j in range(1,2*N):
+        x = x + h
 
+        if j % 2 == 0:
+            sx_2 = sx_2 + fun(x)
+        
+        else:
+            sx_1 = sx_1 + fun(x)
+    
+    sx = ((sx_0 + (2*sx_2) + (4*sx_1))*h )/3 - error
 
-    print(f"Resultado de la integral de {a} hasta {b} es {integral} con metodo de simpson compuesta")
+    print(f"Resultado de la integral de {a} hasta {b} es {sx} con metodo de simpson compuesta")
 
-#fun = lambda x: np.exp(x)
-fun = lambda x: x
-intenumcomp(fun,0,2,4,"simpson")
+fun = lambda x: x**2    
+#fun = lambda x: x
+#intenumcomp(fun,0,2,4,"simpson",0)
+#intenumcomp(fun,0,2,4,"pm",0)
+#intenumcomp(fun,0,2,4,"trapecio",0)
 
