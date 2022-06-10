@@ -1,8 +1,13 @@
 from scipy.integrate import quad
 import numpy as np
 
-fun = lambda x : np.exp(-(x**2))
+fun1 = lambda x : np.exp(-(x**2))
 
-I = quad(fun, -np.Inf, np.Inf)
+I1 = quad(fun1, -np.Inf, np.Inf)
 
-print(I)
+fun2 = lambda x : (x**2)* np.log(x + (((x**2)+1))**2)
+
+I2 = quad(fun2, 0, 2)
+
+print(I1)
+print(I2)
