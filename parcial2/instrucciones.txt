@@ -1,0 +1,11 @@
+
+(1)Ejecutar python3 ej1.py: 
+    Para obtener el grafico ej1)a) y el grafico ej1)b)
+    obs: cerrar el primer grafico desde la pestaña del matplotlib
+El archivo aux contiene el algortimo de larange
+
+(2)Ejecutar python3 ej2.py: 
+    Para obtener el grafico ej2)a), obtener el valor aprox de la integral ej2)b) y obtener la cantidad de tierra a ser removida ej2)b)
+
+
+
