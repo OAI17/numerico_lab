@@ -16,26 +16,22 @@ def a():
     x_y = 0
 
     for i in range(0,m):
-        x = x + float(np.log(hx[i]))
-        y = y + float((hy[i]))
+        x = x + float((hx[i]))
+        y = y + float(np.log(hy[i]))
         x_cuad = x_cuad + (float(hx[i])**2)
-        x_y = x_y + float((hx[i])*float(hy[i]))
+        x_y = x_y + float((hx[i])*float(np.log(hy[i])))
 
-    # ax + b
-    a = np.exp((m*x_y)-(x*y))/((m*x_cuad)-(x**2))
-    b = (((x_cuad*y)-(x_y*x))/((m*x_cuad)-(x**2)))
+    # bx + a
+    B = (((x_cuad*y)-(x_y*x))/((m*x_cuad)-(x**2)))
+    A = ((m*x_y)-(x*y))/((m*x_cuad)-(x**2))
+    
+    a = np.exp(A)
+    b = np.exp(B)
+    
 
+    fun = b*(a**hx)
 
-    hx_new = []
-    hy_new = []
-
-
-    for k in range(0,m):
-        fun = (a*hx[k]) + b
-        hy_new.append(fun)
-
-
-    plt.plot(hx,hy_new,label="Aproximacion",color="blue")
+    plt.plot(hx,fun,label="Aproximacion",color="blue")
     plt.scatter(hx,hy,label="Datos",color="red")
     plt.legend()
     plt.show()
@@ -76,4 +72,4 @@ def b():
     plt.scatter(hx,hy,label="Datos",color="red")
     plt.legend()
     plt.show()
-b()
+#b()
