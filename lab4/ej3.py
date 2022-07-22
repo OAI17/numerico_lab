@@ -21,7 +21,7 @@ def a():
         x_cuad = x_cuad + (float(hx[i])**2)
         x_y = x_y + float((hx[i])*float(np.log(hy[i])))
 
-    # bx + a
+    # ax + b
     B = (((x_cuad*y)-(x_y*x))/((m*x_cuad)-(x**2)))
     A = ((m*x_y)-(x*y))/((m*x_cuad)-(x**2))
     
@@ -43,33 +43,32 @@ def b():
 
     hx = data[0]
     hy = data[1]
-
-
-    m = len(hx)
+    
+    #Elimino el par cercano a cero
+    hx = hx[1:]
+    hy = hy[1:]
+    
     x = 0
+    m = len(hx)
     y = 0
     x_cuad = 0
     x_y = 0
-    
+
     for i in range(0,m):
-        x = x + float((hx[i]))
-        y = y + float((hy[i]))
-        x_cuad = x_cuad + (float(hx[i])**2)
-        x_y = x_y + float((hx[i])*float(hy[i]))
+        x = x + float((1/hx[i]))
+        y = y + float(1/hy[i])
+        x_cuad = x_cuad + (float(1/hx[i])**2)
+        x_y = x_y + float((1/hx[i])*float(1/hy[i]))
 
-    # ax + b
-    a = ((m*x_y)-(x*y))/((m*x_cuad)-(x**2))
-    b = ((x_cuad*y)-(x_y*x))/((m*x_cuad)-(x**2))
+    #bx + a
+    a = (((x_cuad*y)-(x_y*x))/((m*x_cuad)-(x**2)))
+    b = ((m*x_y)-(x*y))/((m*x_cuad)-(x**2))
+    
+    fun = hx/((a*hx) + b)
 
-    hy_new = []
-
-    for k in range(0,m):
-        fun = (a*hx[k] + b)
-        hy_new.append(fun)
-
-
-    plt.plot(hx,hy_new,label="Aproximacion",color="blue")
+    plt.plot(hx,fun,label="Aproximacion",color="blue")
     plt.scatter(hx,hy,label="Datos",color="red")
     plt.legend()
     plt.show()
-#b()
+
+b()
