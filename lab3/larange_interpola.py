@@ -19,7 +19,4 @@ def ilagrange(x,y,z):
         evaluate.append(calculate_sumatoria(x,y,z[l]))
     return evaluate
 
-
-
-
 #print(ilagrange([2, 2.5 , 4],[0.5 , 0.4 , 0.25],[1,2,3]))

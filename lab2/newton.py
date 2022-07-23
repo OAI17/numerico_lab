@@ -33,4 +33,4 @@ def riaz_cubica(x):
     fun_s = (x**3)-2
     fun_der = (3)*(x**2)
     return (fun_s,fun_der)
-#rnewton(riaz_cubica,3,10e-6,100)
+rnewton(riaz_cubica,3,10e-6,100)

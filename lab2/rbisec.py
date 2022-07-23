@@ -10,12 +10,13 @@ def rbisec(fun,I,err,mit):
     #hf= [] el historial de los respectivos valores funcionales. y 
     hx = []
     hy = []
-    u = fun(I[0])
-    v = fun(I[1])
-    e = I[1]-I[0]
+    u = fun(I[0]) #f(a)
+    v = fun(I[1]) #f(b)
+    e = I[1]-I[0] #c
+    #mismo signo
     if math.copysign(u,v) == u:
         print("Stop")
-    
+    #
     else:
         for k in range(1,mit):
             e = e/2
@@ -26,7 +27,7 @@ def rbisec(fun,I,err,mit):
             hy.append(w)
             if abs(e) < err:
                 break
-
+        
             if math.copysign(w,u) == w:
                 I[0] = c
                 u = w
@@ -45,7 +46,7 @@ def fun_lab2ej2b(x):
 
 #hx,hy = rbisec(fun_lab2ej2a,[0.8, 1.4],1e-5, 100)
 #hx,hy = rbisec(fun_lab2ej2b,[1, 4],1e-5, 100)
-
+ 
 def grafica_a():
     x =range(-1,2)
     plt.plot(x, [fun_lab2ej2a(i) for i in x])
