@@ -1,40 +1,62 @@
 import math #math.copysign(a,b) devuelve el valor abs de a pero con el signo de b 
 import matplotlib.pyplot as plt
+from regex import B
 
 def rbisec(fun,I,err,mit):
-    #err es la tolerancia deseada del error
-    #I= [a, b]
-    #fun funcion
-    #mit es el número máximo de iteraciones permitidas
-    #hx= [] es una lista que representa el historial de puntos medios x
-    #hf= [] el historial de los respectivos valores funcionales. y 
     hx = []
     hy = []
-    u = fun(I[0]) #f(a)
-    v = fun(I[1]) #f(b)
-    e = I[1]-I[0] #c
-    #mismo signo
-    if math.copysign(u,v) == u:
-        print("Stop")
-    #
-    else:
-        for k in range(1,mit):
-            e = e/2
-            c = I[0] + e
-            w = fun(c)
-            #print(f"Iteraciones {k},punto medio {c},funcion en c {w}, {e}")
-            hx.append(c)
-            hy.append(w)
-            if abs(e) < err:
-                break
+
+    a = I[0]
+    b = I[1]
+
+    if (a == 0):
+        a = (a-b)
+    elif (b == 0):
+        b = (a-b)
+
+    f_a = fun(a) 
+    f_b = fun(b) 
+    
+    e = b-a
         
-            if math.copysign(w,u) == w:
-                I[0] = c
-                u = w
-            else:
-                I[1] = c
-                v = w
+    #Busca la x*
+
+    for k in range(1,mit):
+        e = e/2
+        c = (a + b)/2
+        f_c = fun(c)
+
+        print(f"Iteraciones {k},punto medio {c},funcion en c {f_c}")
+        hx.append(c)
+        hy.append(f_c)
+                
+        if f_a * f_c > 0:
+            a = c
+            f_c = f_c
+        
+        elif f_a * f_c < 0:
+            b = c
+            f_c = f_c
+        
+        if (abs(e) < err) or (abs(f_c) < err):
+            return (hx,hy)
     return (hx,hy)
+
+
+#Ejemplo de demostracion
+from matplotlib import pyplot as plt
+import numpy as np
+fun = lambda x : (x**2)
+
+xs = np.linspace(0, 2, num=200)
+f = (xs**2)
+plt.plot(xs,f)
+xn, yn = rbisec(fun,[0,1],-1e10,50)
+plt.scatter(xn[-1],yn[-1],label=f"{xn[-1],yn[-1]}")
+plt.legend()
+plt.show()
+
+
 
 def fun_lab2ej2a(x):
     valor = math.tan(x)-(2*x)
@@ -61,4 +83,5 @@ def grafica_b():
     plt.show()
 #grafica_b()
 #grafica_a()
+
 
