@@ -18,13 +18,13 @@ def rnewton(fun,x0,err,mit):
         hx.append(x1)
         hy.append(v)
         
-        #print(f"iteracion {x}, aprox {x1}")
 
         if (abs((x1-x0)/x1) < err) or (abs(v) < err):
-            break
-
+            print(f"cantidad de iteraciones newton {x}")        
+            return (hx,hy)
+               
         x0 = x1
-
+    print(f"cantidad de iteraciones newton {mit}")
     return (hx,hy)
 
 #Ejemplo de demostracion
@@ -33,14 +33,14 @@ import numpy as np
 
 def fun(x):
     return (x**2,2*x)
-
-xs = np.linspace(-10, 10, num=100)
-f = xs**2
-plt.plot(xs,f)
-xn, yn = rnewton(fun,2,-1e10,10)
-plt.scatter(xn[-1],yn[-1],label=f"{xn[-1],yn[-1]}")
-plt.legend()
-plt.show()
+def grafica():
+    xs = np.linspace(-10, 10, num=100)
+    f = xs**2
+    plt.plot(xs,f)
+    xn, yn = rnewton(fun,2,-1e10,10)
+    plt.scatter(xn[-1],yn[-1],label=f"{xn[-1],yn[-1]}")
+    plt.legend()
+    plt.show()
 
 
 def riaz_cubica(x):

@@ -26,7 +26,7 @@ def rbisec(fun,I,err,mit):
         c = (a + b)/2
         f_c = fun(c)
 
-        print(f"Iteraciones {k},punto medio {c},funcion en c {f_c}")
+        #print(f"Iteraciones {k},punto medio {c},funcion en c {f_c}")
         hx.append(c)
         hy.append(f_c)
                 
@@ -46,15 +46,15 @@ def rbisec(fun,I,err,mit):
 #Ejemplo de demostracion
 from matplotlib import pyplot as plt
 import numpy as np
-fun = lambda x : (x**2)
-
-xs = np.linspace(0, 2, num=200)
-f = (xs**2)
-plt.plot(xs,f)
-xn, yn = rbisec(fun,[0,1],-1e10,50)
-plt.scatter(xn[-1],yn[-1],label=f"{xn[-1],yn[-1]}")
-plt.legend()
-plt.show()
+def ej():
+    fun = lambda x : (x**2)
+    xs = np.linspace(0, 2, num=200)
+    f = (xs**2)
+    plt.plot(xs,f)
+    xn, yn = rbisec(fun,[0,1],-1e10,50)
+    plt.scatter(xn[-1],yn[-1],label=f"{xn[-1],yn[-1]}")
+    plt.legend()
+    plt.show()
 
 
 
