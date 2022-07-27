@@ -55,6 +55,7 @@ f = ((np.e)**xs)-xs-2
 plt.plot(xs,f)
 xn, yn = rnewtondelta(fun,1,1e-6,100,1e-5)
 plt.scatter(xn[-1],yn[-1],label=f"{xn[-1],yn[-1]}")
+plt.axis((0,10,0,10))
 plt.legend()
 plt.show()
 
